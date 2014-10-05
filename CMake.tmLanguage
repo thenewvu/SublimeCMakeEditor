@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>CMakeLists.txt</string>
+	</array>
+	<key>name</key>
+	<string>CMake</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>(?i)\b(find_package|try_compile|get_source_file_property|cmake_host_system_information|cmake_policy|mark_as_advanced|ctest_start|execute_process|add_definitions|ctest_sleep|find_library|add_executable|define_property|set_tests_properties|elseif|include|use_mangled_mesa|export_library_dependencies|target_link_libraries|return|string|find_path|enable_language|add_test|include_directories|ctest_build|find_program|remove_definitions|ctest_configure|list|remove|ctest_submit|set|install_files|export|write_file|output_required_files|project|find_file|subdirs|add_compile_options|get_directory_property|exec_program|math|get_target_property|endfunction|set_target_properties|enable_testing|ctest_coverage|ctest_empty_binary_directory|include_regular_expression|add_custom_command|ctest_update|separate_arguments|aux_source_directory|get_property|load_cache|add_dependencies|variable_requires|install_programs|ctest_test|try_run|message|subdir_depends|endwhile|build_command|endforeach|ctest_run_script|get_cmake_property|function|get_test_property|option|link_directories|else|build_name|fltk_wrap_ui|source_group|link_libraries|target_compile_definitions|add_library|target_compile_options|install_targets|while|ctest_read_custom_files|install|ctest_upload|create_test_sourcelist|load_command|set_source_files_properties|include_external_msproject|site_name|configure_file|file|variable_watch|if|utility_source|get_filename_component|foreach|set_directory_properties|qt_wrap_cpp|endmacro|target_include_directories|make_directory|ctest_memcheck|add_subdirectory|break|macro|qt_wrap_ui|cmake_minimum_required|add_custom_target|endif|set_property|unset|pre_build)\b(?=\s*\()</string>
+			<key>name</key>
+			<string>cmakeeditor.command</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.cmake</string>
+	<key>uuid</key>
+	<string>4e20e032-26f9-424c-9850-970835861de8</string>
+</dict>
+</plist>
