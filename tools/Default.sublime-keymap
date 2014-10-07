@@ -1,0 +1,6 @@
+[
+	{
+		"keys": ["f6"],
+		"command": "c_make_editor_search_doc"
+	}
+]
