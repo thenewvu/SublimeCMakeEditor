@@ -1,6 +1,9 @@
 [
 	{
-		"keys": ["f6"],
-		"command": "c_make_editor_search_doc"
+		"keys": ["f1"],
+		"command": "c_make_editor_search_doc",
+		"context": [
+			{ "key": "selector", "operator": "equal", "operand": "source.cmakeeditor" }
+		]
 	}
 ]
