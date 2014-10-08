@@ -21,10 +21,10 @@
             "match": "\\#.+"
         }
     ], 
-    "scopeName": "source.cmake", 
+    "scopeName": "source.cmakeeditor", 
     "fileTypes": [
         "CMakeLists.txt"
     ], 
-    "name": "CMake", 
+    "name": "CMakeEditor", 
     "uuid": "4e20e032-26f9-424c-9850-970835861de8"
 }

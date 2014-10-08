@@ -7,7 +7,7 @@
 		<string>CMakeLists.txt</string>
 	</array>
 	<key>name</key>
-	<string>CMake</string>
+	<string>CMakeEditor</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -42,7 +42,7 @@
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.cmake</string>
+	<string>source.cmakeeditor</string>
 	<key>uuid</key>
 	<string>4e20e032-26f9-424c-9850-970835861de8</string>
 </dict>
