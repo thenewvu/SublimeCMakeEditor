@@ -4,11 +4,13 @@ import json
 
 
 def main():
-	doc_file = '2.8.12.2'
+	cmake_version = '2.8.12.2'
+
+	doc_file = cmake_version
 	if os.path.exists(doc_file):
 		completion_list = []
 
-		with open('2.8.12.2', 'rt') as fp:
+		with open(doc_file, 'rt') as fp:
 			lines = fp.readlines()
 			symbol_pattern = re.compile(r'^  \S+')
 			

@@ -4,9 +4,11 @@ import json
 
 
 def main():
-	doc_file = '2.8.12.2'
+	cmake_version = '2.8.12.2'
+
+	doc_file = cmake_version
 	if os.path.exists(doc_file):
-		with open('2.8.12.2', 'rt') as fp:
+		with open(doc_file, 'rt') as fp:
 			lines = fp.readlines()
 			line_num = 0
 			symbol_pattern = re.compile(r'^  \S+')
@@ -19,7 +21,7 @@ def main():
 
 				line_num += 1
 
-			with open('2.8.12.2.index', 'wt') as index_file:
+			with open('{version}.index'.format(version = cmake_version), 'wt') as index_file:
 				json.dump(obj = symbol_index, fp = index_file, indent = 4)
 
 	else:
