@@ -40,7 +40,7 @@ This is the default keymap:
 		}
 	]
 
-To tweak it, copy the default -> choose Preferences -> Package Settings -> CMakeEditor -> Settings - User -> paste the default and change 'keys' value as you want.
+To tweak it, copy the default -> choose Preferences -> Package Settings -> CMakeEditor -> Key Bindings - User -> paste the default and change 'keys' value as you want.
 
 Changelog
 ---------
