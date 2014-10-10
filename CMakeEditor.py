@@ -45,14 +45,15 @@ class SublimeHelper:
 class CMakeEditorPlugin:
 
 	name = 'CMakeEditor'
-	path = SublimeHelper.getPackagePath(name)
-
-	doc_file = os.path.join(path, 'data/2.8.12.2')
-	symbol_index_file = os.path.join(path, 'data/2.8.12.2.index')
 
 	symbol_index = None
 
 	def __init__(self):
+		self.path = SublimeHelper.getPackagePath(self.name)
+
+		self.doc_file = os.path.join(self.path, 'data/2.8.12.2')
+		self.symbol_index_file = os.path.join(self.path, 'data/2.8.12.2.index')
+
 		if os.path.exists(self.symbol_index_file):
 			with open(self.symbol_index_file, 'rt') as fp:
 				self.symbol_index = json.load(fp)
