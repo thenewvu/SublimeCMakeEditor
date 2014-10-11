@@ -6,8 +6,8 @@ A Sublime Text 2/3 plugin that provides CMake quick reference, auto-completion a
 Features
 --------
 
-* CMake Quick Reference (ver 2.18.12.2)
-* CMake Auto-Completion (ver 2.18.12.2)
+* CMake Quick Reference (ver 2.8.12.2)
+* CMake Auto-Completion (ver 2.8.12.2)
 * CMake Syntax Highlight
 
 ![CMake Quick Reference](http://i.imgur.com/cpzbLwJ.png "CMake Quick Reference")
