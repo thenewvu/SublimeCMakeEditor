@@ -14,7 +14,7 @@
 			<key>match</key>
 			<string>\$\{\w+\}</string>
 			<key>name</key>
-			<string>variable</string>
+			<string>variable, storage</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -26,7 +26,7 @@
 			<key>match</key>
 			<string>(\w+)(?=\s*\()</string>
 			<key>name</key>
-			<string>meta.function-call</string>
+			<string>meta.function-call, support.function</string>
 		</dict>
 		<dict>
 			<key>match</key>
