@@ -41,6 +41,17 @@ class SublimeHelper:
 	def getPackagePath(package):
 		return os.path.join(sublime.packages_path(), package)
 
+	@staticmethod
+	def loadResource(package_name, file_path):
+		if hasattr(sublime, 'load_resource'):
+			# for Windows we have to replace slashes
+			file_path = file_path.replace('\\', '/')
+			return sublime.load_resource(file_path)
+		else:
+			path = os.path.join(SublimeHelper.getPackagePath(), package_name, file_path)
+			with open(path, 'rt') as fp:
+				return fp.read()
+
 
 class CMakeEditorPlugin:
 
@@ -49,45 +60,50 @@ class CMakeEditorPlugin:
 	symbol_index = None
 
 	def __init__(self):
-		self.path = SublimeHelper.getPackagePath(self.name)
 
-		self.doc_file = os.path.join(self.path, 'data/2.8.12.2')
-		self.symbol_index_file = os.path.join(self.path, 'data/2.8.12.2.index')
+		self.doc_file = 'Packages/CMakeEditor/data/2.8.12.2'
+		self.symbol_index_file = 'Packages/CMakeEditor/data/2.8.12.2.index'
 
-		if os.path.exists(self.symbol_index_file):
-			with open(self.symbol_index_file, 'rt') as fp:
-				self.symbol_index = json.load(fp)
-		else:
-			SublimeHelper.printError('Not found {file}.'.format(file = self.symbol_index_file))
+		try:
+			symbol_index_file_data = SublimeHelper.loadResource(self.name, self.symbol_index_file)
+			self.symbol_index = json.loads(symbol_index_file_data)
+		except Exception as ex:
+			print(ex)
+			SublimeHelper.printError('Load resource error on {file}. See log for detail.'.format(file = self.symbol_index_file))
 
 	def getDoc(self, symbol):
-		if self.symbol_index:
+		try:
 			line_num = self.symbol_index.get(symbol)
 			if line_num:
-				with open(self.doc_file, 'rt') as fp:
-					lines = fp.readlines()
-					line_count = len(lines)
-					
-					doc = ''
-					symbol_pattern = re.compile(r'^  \S+')
-					
+				doc_file_data = SublimeHelper.loadResource(self.name, self.doc_file)
+
+				lines = doc_file_data.splitlines()
+				line_count = len(lines)
+				
+				doc = ''
+				symbol_pattern = re.compile(r'^  \S+')
+				
+				line_num += 1
+				while line_num < line_count:
+					line = lines[line_num]
+
+					match = symbol_pattern.match(line)
+					if not match:
+						line = line.replace('       ', '')
+						doc += '{line}\n'.format(line = line)
+					else:
+						break
+
 					line_num += 1
-					while line_num < line_count:
-						line = lines[line_num]
 
-						match = symbol_pattern.match(line)
-						if not match:
-							line = line.replace('       ', '')
-							doc += '{line}\n'.format(line = line)
-						else:
-							break
-
-						line_num += 1
-
-					return doc
+				return doc
+		except Exception as ex:
+			print(ex)
+			SublimeHelper.printError('Get document error. See log for detail.')
 
 
 class CMakeEditorSearchDocCommand(sublime_plugin.TextCommand):
+
 	def run(self, edit):
 		
 		cmake_editor = CMakeEditorPlugin()
@@ -103,6 +119,7 @@ class CMakeEditorSearchDocCommand(sublime_plugin.TextCommand):
 
 
 class CMakeEditorShowDocCommand(sublime_plugin.TextCommand):
+
 	def run(self, edit, text, ouput_panel_name):
 		self.view.insert(edit, 0, text)
 
