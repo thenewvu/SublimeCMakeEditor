@@ -44,11 +44,12 @@ class SublimeHelper:
 	@staticmethod
 	def loadResource(package_name, file_path):
 		if hasattr(sublime, 'load_resource'):
+			file_path = os.path.join('Packages', package_name, file_path)
 			# for Windows we have to replace slashes
 			file_path = file_path.replace('\\', '/')
 			return sublime.load_resource(file_path)
 		else:
-			path = os.path.join(SublimeHelper.getPackagePath(), package_name, file_path)
+			path = os.path.join(SublimeHelper.getPackagePath(package_name), file_path)
 			with open(path, 'rt') as fp:
 				return fp.read()
 
@@ -61,8 +62,8 @@ class CMakeEditorPlugin:
 
 	def __init__(self):
 
-		self.doc_file = 'Packages/CMakeEditor/data/2.8.12.2'
-		self.symbol_index_file = 'Packages/CMakeEditor/data/2.8.12.2.index'
+		self.doc_file = 'data/2.8.12.2'
+		self.symbol_index_file = 'data/2.8.12.2.index'
 
 		try:
 			symbol_index_file_data = SublimeHelper.loadResource(self.name, self.symbol_index_file)
