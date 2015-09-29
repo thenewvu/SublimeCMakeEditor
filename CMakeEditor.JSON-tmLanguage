@@ -18,6 +18,11 @@
         }, 
         {
             "name": "comment", 
+            "begin": "\\#\\[\\[",
+            "end": "\\]\\]"
+        },
+        {
+            "name": "comment", 
             "match": "\\#.+"
         }
     ], 
