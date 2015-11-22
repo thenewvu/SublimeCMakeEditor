@@ -1,54 +1,41 @@
-Sublime CMake Editor
-====================
+## Features
 
-A Sublime Text 2/3 plugin that provides CMake quick reference, auto-completion and syntax highlight features.
-
-Features
---------
-
-* CMake Quick Reference (ver 2.8.12.2)
-* CMake Auto-Completion (ver 2.8.12.2)
-* CMake Syntax Highlight
+* Quick Reference
+* Auto-Completion
+* Syntax Highlight
 
 ![CMake Quick Reference](http://i.imgur.com/cpzbLwJ.png "CMake Quick Reference")
 
 ![CMake Auto-Completion](http://i.imgur.com/j9QL3Cg.png "CMake Auto-Completion")
 
-Usage
------
+## How to use ?
 
-**Requirement**
+**Requirements**:
 
-First, you need to set your document syntax to 'CMakeEditor' by choosing: View -> Syntax -> CMakeEditor
+Change the file syntax to `CMakeEdit` by `View > Syntax > CMakeEditor`.
 
-**Quick Reference**
+**To reference a symbol**:
 
-Click on the symbol then press F1
+Put the cursor on the symbol, press F1.
 
-Customize
----------
+**To change hotkey**:
 
-This is the default keymap:
+Goto `Preferences > Package Settings > CMakeEditor > Key Bindings - User`, paste then edit this:
 
-	[
-		{
-			"keys": ["f1"],
-			"command": "c_make_editor_search_doc",
-			"context": [
-				{ "key": "selector", "operator": "equal", "operand": "source.cmakeeditor" }
-			]
-		}
-	]
+```
+[
+	{
+		"keys": ["f1"],
+		"command": "c_make_editor_search_doc",
+		"context": [
+			{ "key": "selector", "operator": "equal", "operand": "source.cmakeeditor" }
+		]
+	}
+]
+```
 
-To tweak it, copy the default -> choose Preferences -> Package Settings -> CMakeEditor -> Key Bindings - User -> paste the default and change 'keys' value as you want.
+## Thank to
 
-Changelog
----------
-
-* 10/10/2014 - 1.0.0 beta - the first version
-
-Get Involved ?
---------------
-
-* Donate via [Gittip](https://www.gittip.com/thenewvu/)
-* Contribute via [Github](https://github.com/thenewvu/SublimeCMakeEditor)
+@Piepenguin1995  
+@mtuchowski  
+@alexey-broadcast  
